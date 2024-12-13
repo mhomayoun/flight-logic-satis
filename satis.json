@@ -1,0 +1,43 @@
+{
+    "name": "flight-logic/satis",
+    "homepage": "http://localhost:9000",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/flight-logic-common.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/laravel-slack"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/exponent-server-sdk-php"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/laravel-exponent-push-notifications"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/simple-qrcode.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/laravel-slack-events.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mhomayoun/laravel-roboflow.git"
+        }
+    ],
+    "require": {
+        "mhomayoun/flight-logic-common": "*",
+        "mhomayoun/laravel-slack": "*",
+        "mhomayoun/exponent-server-sdk-php": "*",
+        "mhomayoun/laravel-exponent-push-notifications": "*",
+        "mhomayoun/simple-qrcode": "*",
+        "mhomayoun/laravel-slack-events": "*",
+        "mhomayoun/laravel-roboflow": "*"
+    }
+}

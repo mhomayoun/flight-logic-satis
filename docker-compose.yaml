@@ -1,0 +1,22 @@
+services:
+  satis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: satis
+    volumes:
+      - "${COMPOSER_HOME:-$HOME/.composer}:/composer"
+      - ./satis.json:/satis.json
+      - ./output:/output
+      - ./logs:/var/log
+
+  web:
+    image: nginx:latest
+    container_name: satis_webserver
+    ports:
+      - "9000:80" # Map host port 8080 to container port 80
+    volumes:
+      - ./.htpasswd:/etc/nginx/.htpasswd
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./output:/usr/share/nginx/html:ro # Serve the Satis output directory
+    restart: unless-stopped

@@ -23,6 +23,7 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 RUN set -eux ; \
   apk upgrade --no-cache ; \
   apk add --no-cache --upgrade \
+    cronie \
     bash \
     curl \
     git \
@@ -40,11 +41,12 @@ RUN set -eux ; \
 
 ENV COMPOSER_HOME /composer
 
+COPY satis-cron /etc/cron.d/satis-cron
+RUN chmod 0644 /etc/cron.d/satis-cron && crontab /etc/cron.d/satis-cron
+
 COPY php-cli.ini /usr/local/etc/php/
 COPY --from=build /satis /satis/
 
 WORKDIR /build
 
-ENTRYPOINT ["/satis/bin/docker-entrypoint.sh"]
-
-CMD ["--ansi", "-vvv", "build", "/build/satis.json", "/build/output"]
+CMD ["crond", "-f"]

@@ -12,3 +12,4 @@
 !/composer.lock
 !/LICENSE
 !/php-cli.ini
+!/satis-cron

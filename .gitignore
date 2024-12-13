@@ -7,3 +7,6 @@
 /.phpunit.result.cache
 /clover.xml
 /resultCache.php
+/logs/*
+/output/
+.env

@@ -1,0 +1,4 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+COMPOSER_HOME=/composer
+
+* * * * * /usr/local/bin/php /satis/bin/satis build /satis.json /output > /dev/null 2>&1
