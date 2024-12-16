@@ -24,6 +24,7 @@ RUN set -eux ; \
   apk upgrade --no-cache ; \
   apk add --no-cache --upgrade \
     cronie \
+    nano \
     bash \
     curl \
     git \
@@ -44,9 +45,10 @@ ENV COMPOSER_HOME /composer
 COPY satis-cron /etc/cron.d/satis-cron
 RUN chmod 0644 /etc/cron.d/satis-cron && crontab /etc/cron.d/satis-cron
 
+RUN ln -s /satis/vendor/bin/composer /usr/local/bin/composer
 COPY php-cli.ini /usr/local/etc/php/
 COPY --from=build /satis /satis/
 
-WORKDIR /build
+WORKDIR /satis
 
 CMD ["crond", "-f"]
